@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "duaa_arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+    "duaa_meaning": "Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire.",
+    "tags": ["protection", "blessing", "hereafter"]
+  },
+  {
+    "id": 2,
+    "duaa_arabic": "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي رَبَّنَا وَتَقَبَّلْ دُعَاءِ",
+    "duaa_meaning": "My Lord, make me an establisher of prayer, and [many] from my descendants. Our Lord, and accept my supplication.",
+    "tags": ["prayer", "acceptance", "offspring"]
+  },
+  {
+    "id": 3,
+    "duaa_arabic": "رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِمَن دَخَلَ بَيْتِيَ مُؤْمِنًا وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ وَلا تَزِدِ الظَّالِمِينَ إِلا تَبَارًا",
+    "duaa_meaning": "My Lord, forgive me and my parents and whoever enters my house a believer and the believing men and believing women. And do not increase the wrongdoers except in destruction.",
+    "tags": ["forgiveness", "family", "believers"]
+  }
+]
