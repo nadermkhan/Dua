@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         binding.fab.setOnClickListener(v -> {
             Dua dua = findDuaById(1); // Change the ID here
             if (dua != null) {
-                Toast.makeText(MainActivity.this, dua.getDuaArabic(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, dua.getDuaa_arabic(), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(MainActivity.this, "Dua not found", Toast.LENGTH_SHORT).show();
             }
