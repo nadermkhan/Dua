@@ -4,10 +4,13 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.gson.Gson;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import nader.islamic.app.dua.databinding.ActivityMainBinding;
 
@@ -41,10 +44,38 @@ public class MainActivity extends AppCompatActivity {
         try {
             InputStream inputStream = assetManager.open("dua.json");
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            Gson gson = new Gson();
-            duaList = gson.fromJson(inputStreamReader, new TypeToken<List<Dua>>() {}.getType());
+            StringBuilder stringBuilder = new StringBuilder();
+            int data = inputStreamReader.read();
+            while (data != -1) {
+                stringBuilder.append((char) data);
+                data = inputStreamReader.read();
+            }
+            String jsonContent = stringBuilder.toString();
             inputStreamReader.close();
+            parseJson(jsonContent);
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void parseJson(String jsonContent) {
+        duaList = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(jsonContent);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                int id = jsonObject.getInt("id");
+                String duaaArabic = jsonObject.getString("duaa_arabic");
+                String duaaMeaning = jsonObject.getString("duaa_meaning");
+                JSONArray tagsArray = jsonObject.getJSONArray("tags");
+                List<String> tags = new ArrayList<>();
+                for (int j = 0; j < tagsArray.length(); j++) {
+                    tags.add(tagsArray.getString(j));
+                }
+                Dua dua = new Dua(id, duaaArabic, duaaMeaning, tags);
+                duaList.add(dua);
+            }
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
